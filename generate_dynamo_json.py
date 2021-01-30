@@ -39,7 +39,7 @@ def generate_dynamo_batch_json(name):
                 }
             })
     
-        return json.dumps({"RequestItems": { name: output_items }}, indent=2)
+        return json.dumps({ name: output_items }, indent=2)
 
 if __name__ == "__main__":
     arg_len = len(sys.argv)
