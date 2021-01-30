@@ -4,10 +4,11 @@ import json
 import ntpath
 import sys
 
-def generate_dynamo_batch_json_file(name):
+def generate_dynamo_batch_json(name):
     """
-    takes a file name pointing to a csv that has been exported from dynamo db, or conforms
+    using a file name pointing to a csv that has been exported from dynamo db, or conforms
     to the expected format: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html
+    returns a json string representation.
     """
     input_filename = name
     name = ntpath.basename(name).split('.')[0]
@@ -51,4 +52,4 @@ if __name__ == "__main__":
         sys.exit()
 
     file_name = sys.argv[1]
-    print(generate_dynamo_batch_json_file(file_name))
+    print(generate_dynamo_batch_json(file_name))
